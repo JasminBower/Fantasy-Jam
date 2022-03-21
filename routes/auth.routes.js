@@ -14,13 +14,13 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/signup", (req, res) => {
+router.get("/signup", isLoggedOut, (req, res) => {
 	res.render("auth/signup");
 });
 
-router.post("/signup", async (req, res) => {
+router.post("/signup", isLoggedOut, async (req, res) => {
 	const { username, password, email } = req.body;
-	console.log(username, password, "<<<<<<<<<");
+	console.log(username, password, email, "<<<<<<<<<");
 	// const salt = await bcrypt.genSalt(10);
 	// const hash = await bcrypt.hash(password, salt);
 
@@ -78,6 +78,7 @@ router.post("/signup", async (req, res) => {
 				return User.create({
 					username,
 					password: hashedPassword,
+					email,
 				});
 			})
 			.then((user) => {
