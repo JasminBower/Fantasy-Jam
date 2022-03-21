@@ -91,7 +91,6 @@ router.post("/signup", isLoggedOut, async (req, res) => {
 });
 
 router.get("/login", isLoggedOut, (req, res) => {
-	console.log("am I here?");
 	res.render("auth/login");
 });
 
