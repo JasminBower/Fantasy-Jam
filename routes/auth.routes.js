@@ -20,21 +20,6 @@ router.get("/signup", isLoggedOut, (req, res) => {
 
 router.post("/signup", isLoggedOut, async (req, res) => {
 	const { username, password, email } = req.body;
-	console.log(username, password, email, "<<<<<<<<<");
-	// const salt = await bcrypt.genSalt(10);
-	// const hash = await bcrypt.hash(password, salt);
-
-	// try {
-	// 	const newUser = new User({
-	// 		username,
-	// 		password: hash,
-	// 		email,
-	// 	});
-	// 	await newUser.save();
-	// 	res.redirect("/login");
-	// } catch (err) {
-	// 	console.log(err, "this is whats wrong");
-	// }
 
 	if (!username) {
 		return res.status(400).render("auth/signup", {
@@ -66,7 +51,7 @@ router.post("/signup", isLoggedOut, async (req, res) => {
 		if (found) {
 			return res
 				.status(400)
-				.render("auth.signup", { errorMessage: "Username already taken." });
+				.render("auth/signup", { errorMessage: "Username already taken." });
 		}
 
 		// if user is not found, create a new user - start with hashing the password
@@ -106,6 +91,7 @@ router.post("/signup", isLoggedOut, async (req, res) => {
 });
 
 router.get("/login", isLoggedOut, (req, res) => {
+	console.log("am I here?");
 	res.render("auth/login");
 });
 
