@@ -5,23 +5,23 @@ const teamSchema = new Schema(
 	{
 		username: {
 			type: String,
-			required: true,
+			
 		},
-		Driver1: {
+		driverId: {
 			type: String,
 			required: true,
 		},
 		Driver2: {
 			type: String,
-			required: true,
+			
 		},
 		Driver3: {
 			type: String,
-			required: true,
+			
 		},
 		stats: {
 			type: Number,
-			required: true,
+			
 		},
 	},
 	{

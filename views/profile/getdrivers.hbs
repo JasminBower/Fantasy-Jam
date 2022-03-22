@@ -1,5 +1,27 @@
 <h2>hello from getdrivers</h2>
 
-<form method="post" action="/randomdriver">
-    <input hidden  name="randomdriver"/>
-        <button type="submit">+</button>
+    <form method="post" action="/getdrivers">
+    <input value={{randomResult.Driver.driverId}} hidden name="driverId"/>
+        <button id = "button1" type="submit" >Add Random Driver</button>
+        </form>
+
+
+        {{!-- <form method="post" action="/getdrivers">
+    <input hidden name="getdrivers2"/>
+        <button id = "button2" type="submit">Add Random Driver</button>
+        </form>
+
+        <form method="post" action="/getdrivers">
+    <input hidden name="getdrivers3"/>
+        <button id = "button3" type="submit">Add Random Driver</button>
+        </form> --}}
+
+
+<h2>{{randomResult.Driver.givenName}} {{randomResult.Driver.familyName}} {{randomResult.points}}</h2>
+{{!-- <h2>{{randomResult2.Driver.givenName}} {{randomResult2.Driver.familyName}} {{randomResult2.points}}</h2>
+<h2>{{randomResult3.Driver.givenName}} {{randomResult3.Driver.familyName}} {{randomResult3.points}}</h2> --}}
+
+
+{{!-- <form method="post" action="/getdrivers">
+<input hidden  name="pickdriver"/>
+<button type="submit">Pick</button> --}}
