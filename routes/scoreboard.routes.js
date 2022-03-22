@@ -1,6 +1,9 @@
 const router = require("express").Router();
+const data = require("../dummyData");
+const findWinner = require("../utils/findWinner");
 
 router.get("/scoreboard", (req, res, next) => {
+	findWinner(data);
 	res.render("auth/scoreboard");
 });
 
