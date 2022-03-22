@@ -7,19 +7,19 @@ const teamSchema = new Schema(
 			type: String,
 			
 		},
-		driverId: {
+		driver1Id: {
 			type: String,
 			required: true,
 		},
-		Driver2: {
+		driver2Id: {
 			type: String,
-			
+			required: true,
 		},
-		Driver3: {
+		driver3Id: {
 			type: String,
-			
+			required: true,
 		},
-		stats: {
+		teamScore: {
 			type: Number,
 			
 		},
@@ -27,6 +27,7 @@ const teamSchema = new Schema(
 	{
 		// this second object adds extra properties: `createdAt` and `updatedAt`
 		timestamps: true,
+		
 	},
 );
 

@@ -1,12 +1,22 @@
 <h2>hello from getdrivers</h2>
 
-    <form method="post" action="/getdrivers">
-    <input value={{randomResult.Driver.driverId}} hidden name="driverId"/>
-        <button id = "button1" type="submit" >Add Random Driver</button>
-        </form>
+<form method="post" action="/getdrivers">
 
+  <input value= "{{randomResult.Driver}}" hidden name="driver1Id" />
+  <select name="driver2Id">
+    {{#each driverResult2}}
+      <option value="{{this.Driver}}">{{this.Driver.familyName}} </option>
+    {{/each}}
+  </select>
+  <select name="driver3Id">
+    {{#each driverResult3}}
+      <option value="{{this.Driver}}">{{this.Driver.familyName}} </option>
+    {{/each}}
+  </select>
+  <button id="button1" type="submit">Submit</button>
 
-        {{!-- <form method="post" action="/getdrivers">
+</form>
+{{! <form method="post" action="/getdrivers">
     <input hidden name="getdrivers2"/>
         <button id = "button2" type="submit">Add Random Driver</button>
         </form>
@@ -14,14 +24,8 @@
         <form method="post" action="/getdrivers">
     <input hidden name="getdrivers3"/>
         <button id = "button3" type="submit">Add Random Driver</button>
-        </form> --}}
+        </form> }}
 
-
-<h2>{{randomResult.Driver.givenName}} {{randomResult.Driver.familyName}} {{randomResult.points}}</h2>
-{{!-- <h2>{{randomResult2.Driver.givenName}} {{randomResult2.Driver.familyName}} {{randomResult2.points}}</h2>
-<h2>{{randomResult3.Driver.givenName}} {{randomResult3.Driver.familyName}} {{randomResult3.points}}</h2> --}}
-
-
-{{!-- <form method="post" action="/getdrivers">
-<input hidden  name="pickdriver"/>
-<button type="submit">Pick</button> --}}
+<h2>{{randomResult.Driver.givenName}}
+  {{randomResult.Driver.familyName}}
+  {{randomResult.points}}</h2>
