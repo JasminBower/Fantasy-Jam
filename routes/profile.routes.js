@@ -1,19 +1,22 @@
 const isLoggedIn = require("../middleware/isLoggedIn");
 const router = require("express").Router();
-const User = require('../models/User.model');
+const User = require("../models/User.model");
 const Driver = require("../models/Driver.model");
-const Team = require('../models/Team.model');
-const axios = require('axios');
+const Team = require("../models/Team.model");
+const axios = require("axios");
 
 let driversApi = axios.get("http://ergast.com/api/f1/2022/driverStandings.json");
 
 router.get("/profile", isLoggedIn, (req, res) => {
-    res.render("profile/profile", {user: req.session.user});
-  });
+	res.render("profile/profile", { user: req.session.user });
+});
+
 
 router.get("/getdrivers",isLoggedIn, async (req,res) => {
    
     res.render("profile/getdrivers");
+
+
 });
 router.get("/randomdriver",isLoggedIn, async (req,res) => {
   res.render("profile/randomdriver");
@@ -29,4 +32,4 @@ res.render("profile/randomdriver", {randomResult});
 });
 
 
-  module.exports = router;
+module.exports = router;
