@@ -1,14 +1,36 @@
 
 <h2>Welcome, {{currentUser.username}}!</h2>
 
+<div class="drivers">
+<div class="card" style="width: 18rem;">
+  <img src="/images/{{currentUser.driver1Id}}.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{currentUser.driver1Id}}</h5>
+    <p class="card-text">Find some information bellow...</p>
+    <a href="http://ergast.com/api/f1/drivers/{{currentUser.driver1Id}}" class="btn btn-primary">Find more!</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <img src="/images/{{currentUser.driver2Id}}.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{currentUser.driver2Id}}</h5>
+    <p class="card-text">Find some information bellow...</p>
+    <a href="http://ergast.com/api/f1/drivers/{{currentUser.driver2Id}}" class="btn btn-primary">Find more!</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <img src="/images/{{currentUser.driver3Id}}.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{currentUser.driver3Id}}</h5>
+    <p class="card-text">Find some information bellow...</p>
+    <a href="http://ergast.com/api/f1/drivers/{{currentUser.driver3Id}}" class="btn btn-primary">Find more!</a>
+  </div>
+</div>
+</div>
 
-
- <div>Your Team:
-    <p>{{currentUser.driver1Id}}</p>
-    <p>{{currentUser.driver2Id}}</p>
-    <p>{{currentUser.driver3Id}}</p>
+ 
     <p>Total Score: {{totalScore}}</p>
-</div>  
+ 
 
 <a href="/scoreboard">Go To Scoreboard</a>
 
