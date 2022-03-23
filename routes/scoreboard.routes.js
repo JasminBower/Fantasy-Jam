@@ -1,9 +1,15 @@
 const router = require("express").Router();
 const data = require("../dummyData");
+const Team = require("../models/Team.model");
 const findWinner = require("../utils/findWinner");
 
-router.get("/scoreboard", (req, res, next) => {
-	findWinner(data);
+//get user teams
+// sort and render
+// *** highlight current user position
+
+router.get("/scoreboard", async (req, res, next) => {
+	let teams = await Team.find();
+	console.log(teams);
 	res.render("auth/scoreboard");
 });
 
