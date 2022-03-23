@@ -4,12 +4,12 @@
 
   <input value= "{{randomResult.Driver.driverId}}" hidden name="driver1Id" />
   <select name="driver2Id">
-    {{#each driverResult}}
+    {{#each filteredDrivers}}
       <option value="{{this.Driver.driverId}}">{{this.Driver.familyName}} </option>
     {{/each}}
   </select>
   <select name="driver3Id">
-    {{#each driverResult }}
+    {{#each filteredDrivers}}
       <option value="{{this.Driver.driverId}}">{{this.Driver.familyName}} </option>
     {{/each}}
   </select>
