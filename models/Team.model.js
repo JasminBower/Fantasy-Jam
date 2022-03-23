@@ -5,6 +5,7 @@ const teamSchema = new Schema(
 	{
 		username: {
 			type: String,
+			unique:true,
 			
 		},
 		driver1Id: {

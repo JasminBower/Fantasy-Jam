@@ -13,10 +13,11 @@ let driversApi = axios.get("http://ergast.com/api/f1/2022/driverStandings.json")
 // let driversPoints = axios.get(`http://ergast.com/api/f1/drivers/${driverName}/driverStandings.json`)
 
 router.get("/profile", isLoggedIn, async (req, res) => {
-let [userTeam]= await Team.find({user: req.session.username})
-let driver1Id = userTeam.driver1Id
-let driver2Id = userTeam.driver2Id
-let driver3Id = userTeam.driver3Id
+let [currentUser]= await Team.find({username: req.session.user.username})
+console.log(currentUser, req.session);
+let driver1Id = currentUser.driver1Id
+let driver2Id = currentUser.driver2Id
+let driver3Id = currentUser.driver3Id
 let driversApi = await axios.get("http://ergast.com/api/f1/2022/driverStandings.json");
 let driversData = driversApi.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
 let filterDrivers = driversData.filter((elem)=>{
@@ -24,22 +25,21 @@ let currentDriverId = elem.Driver.driverId
 if(currentDriverId === driver1Id || currentDriverId === driver2Id || currentDriverId === driver3Id){
 return elem
 }
-})
+});
 console.log(filterDrivers, "FILTER");
-
-
-res.render("profile/profile", { user: req.session.user , userTeam});
+let totalScore = filterDrivers.reduce((acc, elem)=>{
+  return acc +Number(elem.points);
+  },0);
+console.log(totalScore);
+res.render("profile/profile", { currentUser, totalScore });
 });
 
 router.get("/getdrivers", isLoggedIn, async (req, res) => {
   let randomDriver = await driversApi;
   let randomResult = randomDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[getRandom(20)]
   let driverResult = randomDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
-  //let driverResult3 = randomDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
-  //let points = randomDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
   res.render("profile/getdrivers", { randomResult, driverResult});
 });
-
 
 
 router.post("/getdrivers", isLoggedIn, async (req, res) => {
@@ -49,8 +49,6 @@ router.post("/getdrivers", isLoggedIn, async (req, res) => {
   console.log(newTeam);
   res.render("profile/profile");
 });
-
-
 
 
 
