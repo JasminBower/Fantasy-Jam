@@ -9,13 +9,16 @@ const findWinner = require("../utils/findWinner");
 
 router.get("/scoreboard", async (req, res, next) => {
 	let teams = await Team.find();
-	console.log(teams);
-	res.render("auth/scoreboard");
+	let sortedTeams = teams.sort((a, b) => {
+		return b.teamScore - a.teamScore;
+	});
+
+	res.render("auth/scoreboard", { sortedTeams });
 });
 
-router.post("/scoreboard", (req, res, next) => {
-	const { team } = req.body;
-	res.render(team);
-});
+// router.post("/scoreboard", (req, res, next) => {
+// 	const { team } = req.body;
+// 	res.render(team);
+// });
 
 module.exports = router;
