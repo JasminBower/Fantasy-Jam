@@ -44,7 +44,7 @@ router.get("/profile", isLoggedIn, async (req, res) => {
 			{ teamScore: totalScore },
 			{ new: true },
 		);
-		console.log("UPDATEDDDDDDDDDDDDDD", updatedTeams);
+		//	console.log("UPDATEDDDDDDDDDDDDDD", updatedTeams);
 		res.render("profile/profile", { currentUser, totalScore });
 	} else {
 		res.redirect("/getdrivers");
@@ -66,7 +66,7 @@ router.get("/getdrivers", isLoggedIn, async (req, res) => {
 });
 
 router.post("/getdrivers", isLoggedIn, async (req, res) => {
-	console.log(req.body, "<<<<<<<<<<<<<<");
+	//console.log(req.body, "<<<<<<<<<<<<<<");
 	const newTeam = {
 		username: req.session.user.username,
 		driver1Id: req.body.driver1Id,
@@ -75,7 +75,7 @@ router.post("/getdrivers", isLoggedIn, async (req, res) => {
 		//totalScore: req.body.totalScore
 	};
 	await Team.create(newTeam);
-	console.log(newTeam);
+	//	console.log(newTeam);
 	res.redirect("/profile");
 });
 
