@@ -12,3 +12,14 @@
 </ol>
 
 <a href="../profile">Go back to profile</a>
+
+<h3>Comments</h3>
+
+    <form method="POST" action="/scoreboard">
+        <div class="input-field">
+            <label>Comment:</label>
+            <textarea type="text" name="comment" rows="1" placeholder="What's on your mind?"></textarea>
+        </div>
+        <input type="hidden" name="article-id" value="{{comments._id}}">
+        <button type="submit">Add Comment</button>
+    </form>

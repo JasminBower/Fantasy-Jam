@@ -1,22 +1,14 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const driverSchema = new Schema(
+const commentSchema = new Schema(
 	{
-		fullname: {
+		username: {
 			type: String,
 			required: true,
 		},
-		team: {
+		comment: {
 			type: String,
-			required: true,
-		},
-		nationality: {
-			type: String,
-			required: true,
-		},
-		wins: {
-			type: Number,
 			required: true,
 		},
 	},
@@ -26,6 +18,6 @@ const driverSchema = new Schema(
 	},
 );
 
-const Driver = model("Driver", driverSchema);
+const Comment = model("Comment", commentSchema);
 
-module.exports = Driver;
+module.exports = Comment;
