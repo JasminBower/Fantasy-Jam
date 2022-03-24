@@ -1,0 +1,12 @@
+<h1>Edit Your Comment {{username}}</h1>
+<p>Please note we do not tolerate abuse in this community, only happiness and fries</p>
+
+
+  <form method="POST" action="/comments">
+        <div class="input-field">
+            <label>Edit Comment:</label>
+            <textarea type="text" name="comment" rows="1" placeholder="What's on your mind?"></textarea>
+        </div>
+        <input type="hidden" name="article-id" value="{{comment._id}}">
+        <button type="submit">Edit Comment</button>
+    </form>

@@ -17,6 +17,8 @@ router.get("/scoreboard", async (req, res, next) => {
 
 	const winner = sortedTeams[0].username;
 
+	//const dateCreated = allComment
+
 	res.render("auth/scoreboard", { sortedTeams, winner, allComments });
 });
 
