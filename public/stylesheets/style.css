@@ -17,3 +17,8 @@ h1 {
   display:flex;
   flex-direction: row;
 }
+
+#fantasy{
+  width: 93px ;
+  height: 51px;
+}
