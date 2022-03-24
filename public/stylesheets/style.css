@@ -19,6 +19,21 @@ h1 {
 }
 
 #fantasy{
-  width: 93px ;
-  height: 51px;
+  width: 140px ;
+  height: 77px;
+}
+.body-scoreboard{
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: space-between;
+}
+.getdrivers{
+  margin-top: 5%;
+
+}
+.body-scoreboard{
+  margin-top: 5%;
 }
