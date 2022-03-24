@@ -13,7 +13,9 @@ router.get("/scoreboard", async (req, res, next) => {
 		return b.teamScore - a.teamScore;
 	});
 
-	res.render("auth/scoreboard", { sortedTeams });
+	const winner = sortedTeams[0].username;
+
+	res.render("auth/scoreboard", { sortedTeams, winner });
 });
 
 // router.post("/scoreboard", (req, res, next) => {
