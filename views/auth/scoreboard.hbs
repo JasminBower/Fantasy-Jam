@@ -12,3 +12,27 @@
 </ol>
 
 <a href="../profile">Go back to profile</a>
+
+<p>Racer Comments:</p>
+
+    <form method="POST" action="/scoreboard">
+        <div class="input-field">
+            <label>Add Comment:</label>
+            <textarea type="text" name="comment" rows="1" placeholder="What's on your mind?"></textarea>
+        </div>
+        <input type="hidden" name="article-id" value="{{comment._id}}">
+        <button type="submit">Add Comment</button>
+    </form>
+<ul>
+    {{#each allComments}}
+    <li>{{this.comment}}</li>
+    <p>by {{this.username}}</p>
+    <p>at {{this.createdAt}}</p>
+    <form method="GET" action="/comments/{{this._id}}">
+        <button type="submit" value="{{this._id}}">Edit Comment</button>
+    </form>
+    
+    <button type="submit">Delete Comment</button>
+    {{/each}}
+</ul>
+

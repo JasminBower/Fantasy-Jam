@@ -1,14 +1,12 @@
 const isLoggedIn = require("../middleware/isLoggedIn");
 const router = require("express").Router();
 const User = require("../models/User.model");
-const Driver = require("../models/Driver.model");
 const Team = require("../models/Team.model");
 const axios = require("axios");
 const getRandom = require("../utils/getRandom");
 const mongoose = require("mongoose");
 const capitalized = require("../utils/capitalized");
 const app = require("../app");
-
 
 let driversApi = axios.get(
 	"http://ergast.com/api/f1/2022/driverStandings.json",
