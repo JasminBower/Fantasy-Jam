@@ -27,7 +27,8 @@ router.get("/profile", isLoggedIn, async (req, res) => {
 		let driversData =
 			driversApi.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
 		let filterDrivers = driversData.filter((elem) => {
-			let currentDriverId = elem.Driver.driverId;
+			let currentDriverId = elem.Driver.familyName;
+			//console.log(elem.Driver.familyName)
 			if (
 				currentDriverId === driver1Id ||
 				currentDriverId === driver2Id ||
@@ -36,7 +37,8 @@ router.get("/profile", isLoggedIn, async (req, res) => {
 				return elem;
 			}
 		});
-		//console.log(filterDrivers, "FILTER");
+		
+		//console.log(filterDrivers,  "FILTER");
 		let totalScore = filterDrivers.reduce((acc, elem) => {
 			return acc + Number(elem.points);
 		}, 0);
@@ -45,7 +47,7 @@ router.get("/profile", isLoggedIn, async (req, res) => {
 			{ teamScore: totalScore },
 			{ new: true },
 		);
-		//	console.log("UPDATEDDDDDDDDDDDDDD", updatedTeams);
+		//console.log("UPDATEDDDDDDDDDDDDDD", req.session.user.username);
 		res.render("profile/profile", { currentUser, totalScore });
 	} else {
 		res.redirect("/getdrivers");
