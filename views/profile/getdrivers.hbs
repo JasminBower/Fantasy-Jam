@@ -1,7 +1,7 @@
 
 <div class="getdrivers" class="container-fluid">
-
-<form method="post" action="/getdrivers">
+<div id="getdriversform">
+<form id="displayform" method="post" action="/getdrivers">
 
   <input value= "{{randomResult.Driver.familyName}}" hidden name="driver1Id" />
   <h2>Select your first driver:</h2>
@@ -18,14 +18,16 @@
     {{/each}}
   </select>
   <br>
-  <button id="button1" class="btn btn-primary" type="submit">Submit</button>
-
-</form>
-
+  
 <div class= "randomdriver">
   <h2>And your random driver is:</h2>
 <h4>{{randomResult.Driver.givenName}}
   {{randomResult.Driver.familyName}}
   </h4>
   </div>
+  <button id="button1" class="btn btn-primary" type="submit">Get your team</button>
+</form>
+
+  </div>
+  <img class="img-fluid" id="background" src="images/background.jpg">
   </div>

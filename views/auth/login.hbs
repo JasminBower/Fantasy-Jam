@@ -1,16 +1,16 @@
 
 <div id="login" class="container-fluid">
 <div id="loginform">  
-<h2>Login</h2>
+<h2 id="h2login">Login</h2>
 <form  action="/login" method="POST">
-   <label> Username
+   <label> <h5>Username</h5>
       <input type="text" name="username">
    </label>
-   <label> Password
+   <label> <h5>Password</h5>
       <input type="password" name="password">
    </label>
 
-   <button type="submit">Submit</button>
+   <button class="btn btn-primary" type="submit">Login</button>
 </form>
 
 {{#if errorMessage}}

@@ -22,20 +22,17 @@ h1 {
   width: 140px ;
   height: 77px;
 }
-.body-scoreboard{
-  background-color: white;
+/* .body-scoreboard{
+  
   display:flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  align-content: space-between;
-}
-.getdrivers{
-  margin-top: 5%;
+  align-content: space-around;
+} */
 
-}
 .body-scoreboard{
-  margin-top: 2%;
+  margin-top: 0;
 }
 #background{
   opacity: 0.5;
@@ -61,10 +58,75 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+#login{
+  display:flex;
+  justify-content: center;
+}
 #loginform{
+  padding-top: 50px;
+  position: absolute;
+  z-index: 10;
+}
+#h2login{
+  padding-bottom: 25px;
+  text-align: center;
+}
+#signup{
+  display:flex;
+  justify-content: center;
+}
+#signupform{
+  padding-top: 50px;
+  position: absolute;
+  z-index: 10;
+}
+#h2signup{
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+#scoreboard-content{
+  margin-right: 10px;
+  margin-top: 25px;
+  z-index: 10;
+  position: absolute;
+  
+}
+
+#getdriversform{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 50px;
   position: absolute;
   z-index: 10;
   
 }
+.getdrivers{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.randomdriver{
+  margin-bottom: 10px;
+  text-align: center;
+}
+#profiledrivers{
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+ 
+}
+#profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+ 
+}
+
 
 
