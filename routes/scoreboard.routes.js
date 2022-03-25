@@ -4,20 +4,19 @@ const Team = require("../models/Team.model");
 const Comment = require("../models/Comment.model");
 const findWinner = require("../utils/findWinner");
 
-//get user teams
-// sort and render
-// *** highlight current user position
-
 router.get("/scoreboard", async (req, res, next) => {
+	let isUser = true;
 	let allComments = await Comment.find();
 	let teams = await Team.find();
 	let sortedTeams = teams.sort((a, b) => {
 		return b.teamScore - a.teamScore;
 	});
 
-	const winner = sortedTeams[0].username;
+	let winner = sortedTeams[0].username;
 
-	//console.log(allComments[0]._id);
+	if (winner == req.session.user.username) {
+		winner = "You";
+	}
 
 	res.render("auth/scoreboard", { sortedTeams, winner, allComments });
 });
