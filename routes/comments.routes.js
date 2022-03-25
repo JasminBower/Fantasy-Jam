@@ -9,7 +9,7 @@ router.get("/comments/:id", async (req, res, next) => {
 	let comment = await Comment.findById(id);
 	//console.log(comment, "CHEEEESE");
 
-	res.render("comments", { username, comment });
+	res.render("auth/comments", { username, comment });
 });
 
 router.post("/comments/:id", async (req, res, next) => {
