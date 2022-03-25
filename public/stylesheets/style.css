@@ -1,9 +1,9 @@
 
-
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+padding-left: 10px;
+padding-right: 10px;
   
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -35,8 +35,36 @@ h1 {
 
 }
 .body-scoreboard{
-  margin-top: 5%;
+  margin-top: 2%;
 }
 #background{
   opacity: 0.5;
+  position: relative;
 }
+
+#navbar{
+  padding-top: 10px ;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.nav-link{
+  font-size: large;
+  text-align: justify;
+}
+.h1index{
+  font-size:10vw;
+  position: absolute;
+}
+#indexpage{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+#loginform{
+  position: absolute;
+  z-index: 10;
+  
+}
+
+
