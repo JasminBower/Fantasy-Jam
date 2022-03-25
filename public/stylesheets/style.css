@@ -37,3 +37,6 @@ h1 {
 .body-scoreboard{
   margin-top: 5%;
 }
+#background{
+  opacity: 0.5;
+}
