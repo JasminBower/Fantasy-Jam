@@ -1,8 +1,6 @@
 const router = require("express").Router();
-const data = require("../dummyData");
 const Team = require("../models/Team.model");
 const Comment = require("../models/Comment.model");
-const findWinner = require("../utils/findWinner");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/scoreboard", isLoggedIn, async (req, res, next) => {
@@ -11,6 +9,9 @@ router.get("/scoreboard", isLoggedIn, async (req, res, next) => {
 	let currentUser = req.session.user.username;
 
 	const mappedComments = allComments.map((comment) => {
+		let newDate = String(comment.updatedAt).split(" ").slice(1, 5);
+		newDate.splice(3, 0, " at ");
+		comment.time = newDate.join(" ");
 		if (currentUser == comment.username) {
 			comment.isCurrentUser = true;
 			return comment;
@@ -19,8 +20,6 @@ router.get("/scoreboard", isLoggedIn, async (req, res, next) => {
 			return comment;
 		}
 	});
-
-	console.log(mappedComments);
 
 	let sortedTeams = teams.sort((a, b) => {
 		return b.teamScore - a.teamScore;
@@ -45,10 +44,26 @@ router.post("/scoreboard", isLoggedIn, async (req, res, next) => {
 	let newComment = {
 		username: req.session.user.username,
 		comment: comment,
+		time: "",
 	};
 	console.log(newComment);
-	let comments = await Comment.create(newComment);
+	await Comment.create(newComment);
 
+	res.redirect("/scoreboard");
+});
+
+router.delete("/scoreboard/:id", async (req, res, next) => {
+	console.log("am I here???>");
+	let username = req.session.user.username;
+	let { id } = req.params;
+
+	console.log(req.params, req.body);
+
+	console.log(username, id);
+
+	if (username) {
+		await Comment.findByIdAndDelete(id);
+	}
 	res.redirect("/scoreboard");
 });
 
