@@ -21,6 +21,4 @@ router.post("/comments/:id", async (req, res, next) => {
 	res.redirect("/scoreboard");
 });
 
-router.delete("/comments", (req, res, next) => {});
-
 module.exports = router;

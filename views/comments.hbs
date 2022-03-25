@@ -5,7 +5,7 @@
   <form method="POST" action="/comments/{{comment._id}}">
         <div class="input-field">
             <label>Edit Comment:</label>
-            <textarea type="text" name="comment" rows="1">{{comment.comment}}</textarea>
+            <textarea type="text" name="comment" rows="5">{{comment.comment}}</textarea>
         </div>
         <input type="hidden" name="article-id" value="{{comment._id}}">
         <button type="submit">Edit Comment</button>

@@ -1,8 +1,6 @@
 const router = require("express").Router();
-const data = require("../dummyData");
 const Team = require("../models/Team.model");
 const Comment = require("../models/Comment.model");
-const findWinner = require("../utils/findWinner");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/scoreboard", isLoggedIn, async (req, res, next) => {
@@ -49,8 +47,23 @@ router.post("/scoreboard", isLoggedIn, async (req, res, next) => {
 		time: "",
 	};
 	console.log(newComment);
-	let comments = await Comment.create(newComment);
+	await Comment.create(newComment);
 
+	res.redirect("/scoreboard");
+});
+
+router.delete("/scoreboard/:id", async (req, res, next) => {
+	console.log("am I here???>");
+	let username = req.session.user.username;
+	let { id } = req.params;
+
+	console.log(req.params, req.body);
+
+	console.log(username, id);
+
+	if (username) {
+		await Comment.findByIdAndDelete(id);
+	}
 	res.redirect("/scoreboard");
 });
 
