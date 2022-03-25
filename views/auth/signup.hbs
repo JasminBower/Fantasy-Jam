@@ -1,5 +1,6 @@
-<div>
-<h2>Sign up here</h2>
+<div id="signup" class="container-fluid">
+<div id="signupform">  
+<h2 id="h2signup">Sign Up</h2>
 
 <form action="/signup" method="POST">
    <label> Username
@@ -12,10 +13,13 @@
       <input type="email" name="email">
    </label>
 
-   <button type="submit">Submit</button>
+   <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>
 
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
 </div>
+<img class="img-fluid" id="background" src="images/background.jpg">
+
+</div> 
