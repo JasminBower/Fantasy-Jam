@@ -1,12 +1,24 @@
-<h1>Edit Your Comment {{username}}</h1>
-<p>Please note we do not tolerate abuse in this community, only happiness and fries</p>
+<div id="comments" class="container-fluid">
+  <div id="commentsform">
 
+    <h1>Edit Your Comment {{username}}</h1>
+    <p>Please note we do not tolerate abuse in this community, only happiness
+      and fries</p>
 
-  <form method="POST" action="/comments/{{comment._id}}">
-        <div class="input-field">
-            <label>Edit Comment:</label>
-            <textarea type="text" name="comment" rows="5">{{comment.comment}}</textarea>
-        </div>
-        <input type="hidden" name="article-id" value="{{comment._id}}">
-        <button type="submit">Edit Comment</button>
+    <form method="POST" action="/comments/{{comment._id}}">
+      <div class="input-field">
+        <label>Edit Comment:</label>
+        <textarea
+          cols="100"
+          type="text"
+          name="comment"
+          rows="4"
+        >{{comment.comment}}</textarea>
+      </div>
+      <input type="hidden" name="article-id" value="{{comment._id}}" />
+      <button class="btn btn-primary" type="submit">Edit Comment</button>
     </form>
+
+  </div>
+  <img class="img-fluid" id="background" src="/images/background.jpg" />
+</div>

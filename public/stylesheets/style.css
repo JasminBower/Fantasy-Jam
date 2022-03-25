@@ -128,5 +128,10 @@ h1 {
  
 }
 
+#commentsform{
+  position: absolute;
+  z-index: 10;
+}
+
 
 
