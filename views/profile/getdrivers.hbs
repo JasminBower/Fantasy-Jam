@@ -1,4 +1,5 @@
 
+<div class="getdrivers" class="container-fluid">
 
 <form method="post" action="/getdrivers">
 
@@ -9,19 +10,22 @@
       <option value="{{this.Driver.familyName}}">{{this.Driver.givenName}} {{this.Driver.familyName}} </option>
     {{/each}}
   </select>
+  <br>
   <h2>Select your second driver:</h2>
   <select name="driver3Id" class="form-select" multiple aria-label="multiple select example">
     {{#each filteredDrivers}}
       <option value="{{this.Driver.familyName}}">{{this.Driver.givenName}} {{this.Driver.familyName}} </option>
     {{/each}}
   </select>
+  <br>
   <button id="button1" type="submit">Submit</button>
 
 </form>
 
-<div>
+<div class= "randomdriver">
   <h2>And your random driver is:</h2>
 <h4>{{randomResult.Driver.givenName}}
   {{randomResult.Driver.familyName}}
   </h4>
+  </div>
   </div>

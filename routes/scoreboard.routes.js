@@ -3,9 +3,10 @@ const data = require("../dummyData");
 const Team = require("../models/Team.model");
 const Comment = require("../models/Comment.model");
 const findWinner = require("../utils/findWinner");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/scoreboard", async (req, res, next) => {
-	let isUser = true;
+
+router.get("/scoreboard",isLoggedIn, async (req, res, next) => {
 	let allComments = await Comment.find();
 	let teams = await Team.find();
 	let sortedTeams = teams.sort((a, b) => {
@@ -21,7 +22,7 @@ router.get("/scoreboard", async (req, res, next) => {
 	res.render("auth/scoreboard", { sortedTeams, winner, allComments });
 });
 
-router.post("/scoreboard", async (req, res, next) => {
+router.post("/scoreboard", isLoggedIn, async (req, res, next) => {
 	const { comment } = req.body;
 	let newComment = {
 		username: req.session.user.username,
