@@ -94,16 +94,16 @@
     </tr>
   </thead>
   <tbody>
-    {{#each allComments}}
+    {{#each mappedComments}}
       <tr>
         {{!-- <th scope="row"></th> --}}
         <td>{{this.username}}</td>
         <td>{{this.comment}}</td>
-        <td>{{this.createdAt}}</td>
-        <td><form method="GET" action="/comments/{{this._id}}">
+        <td>{{this.updatedAt}}</td>
+        <td> {{#if this.isCurrentUser}}<form method="GET" action="/comments/{{this._id}}">
     <button type="submit" class="btn btn-primary" value="{{this._id}}">Edit Comment</button>
-    </form></td>
-        <td><form method="GET" action="/comments/{{this._id}}"><button type="submit" class="btn btn-primary">Delete Comment</button></form></td>
+    </form>  {{/if}}</td>
+        <td> {{#if this.isCurrentUser}}<form method="GET" action="/comments/{{this._id}}"><button type="submit" class="btn btn-primary">Delete Comment</button></form>  {{/if}}</td>
       </tr>
     {{/each}}
   </tbody>
