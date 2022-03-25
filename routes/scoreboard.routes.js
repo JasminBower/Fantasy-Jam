@@ -5,10 +5,23 @@ const Comment = require("../models/Comment.model");
 const findWinner = require("../utils/findWinner");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-
-router.get("/scoreboard",isLoggedIn, async (req, res, next) => {
+router.get("/scoreboard", isLoggedIn, async (req, res, next) => {
 	let allComments = await Comment.find();
 	let teams = await Team.find();
+	let currentUser = req.session.user.username;
+
+	const mappedComments = allComments.map((comment) => {
+		if (currentUser == comment.username) {
+			comment.isCurrentUser = true;
+			return comment;
+		} else {
+			comment.isCurrentUser = false;
+			return comment;
+		}
+	});
+
+	console.log(mappedComments);
+
 	let sortedTeams = teams.sort((a, b) => {
 		return b.teamScore - a.teamScore;
 	});
@@ -19,7 +32,12 @@ router.get("/scoreboard",isLoggedIn, async (req, res, next) => {
 		winner = "You";
 	}
 
-	res.render("auth/scoreboard", { sortedTeams, winner, allComments });
+	res.render("auth/scoreboard", {
+		sortedTeams,
+		winner,
+		mappedComments,
+		currentUser,
+	});
 });
 
 router.post("/scoreboard", isLoggedIn, async (req, res, next) => {

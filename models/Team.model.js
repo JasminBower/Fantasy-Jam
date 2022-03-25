@@ -5,8 +5,7 @@ const teamSchema = new Schema(
 	{
 		username: {
 			type: String,
-			unique:true,
-			
+			unique: true,
 		},
 		driver1Id: {
 			type: String,
@@ -22,13 +21,11 @@ const teamSchema = new Schema(
 		},
 		teamScore: {
 			type: Number,
-			
 		},
 	},
 	{
 		// this second object adds extra properties: `createdAt` and `updatedAt`
 		timestamps: true,
-		
 	},
 );
 

@@ -58,15 +58,18 @@
   <button type="submit">Add Comment</button>
 </form>
 <ul>
-  {{#each allComments}}
+  {{#each mappedComments}}
     <li>{{this.comment}}</li>
     <p>by {{this.username}}</p>
     <p>at {{this.updatedAt}}</p>
+
+    {{#if this.isCurrentUser}}
     <form method="GET" action="/comments/{{this._id}}">
     <button type="submit" value="{{this._id}}">Edit Comment</button>
     </form>
 
     <button type="submit">Delete Comment</button>
+    {{/if}}
   {{/each}}
 </ul>
 </div>
