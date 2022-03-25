@@ -103,7 +103,7 @@
         <td> {{#if this.isCurrentUser}}<form method="GET" action="/comments/{{this._id}}">
     <button type="submit" class="btn btn-primary" value="{{this._id}}">Edit Comment</button>
     </form>  {{/if}}</td>
-        <td> {{#if this.isCurrentUser}}<form method="DELETE" action="/scoreboard/{{this._id}}" type="submit" class="btn btn-primary" value="{{this._id}}">Delete Comment</button></form>  {{/if}}</td>
+        <td> {{#if this.isCurrentUser}}<form method="GET" action="/scoreboard/{{this._id}}"><button type="submit" class="btn btn-primary" value="{{this._id}}" >Delete Comment</button></form>  {{/if}}</td>
       </tr>
     {{/each}}
   </tbody>
