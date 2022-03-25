@@ -55,16 +55,28 @@
   <input type="hidden" name="article-id" value="{{comment._id}}" />
   <button class="btn btn-primary" type="submit">Add Comment</button>
 </form>
+
  {{!-- <ul>
-  {{#each allComments}}
+ 
+
+<ul>
+  {{#each mappedComments}}
+
     <li>{{this.comment}}</li>
     <p>by {{this.username}}</p>
-    <p>at {{this.createdAt}}</p>
+    <p>at {{this.updatedAt}}</p>
+
+    {{#if this.isCurrentUser}}
     <form method="GET" action="/comments/{{this._id}}">
     <button type="submit" class="btn btn-primary" value="{{this._id}}">Edit Comment</button>
     </form>
 
+
     <button type="submit" class="btn btn-primary">Delete Comment</button>
+
+
+    {{/if}}
+
   {{/each}}
 </ul> --}}
 </div> 

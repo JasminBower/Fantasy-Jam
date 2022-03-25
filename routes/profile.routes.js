@@ -37,7 +37,7 @@ router.get("/profile", isLoggedIn, async (req, res) => {
 				return elem;
 			}
 		});
-		
+
 		//console.log(filterDrivers,  "FILTER");
 		let totalScore = filterDrivers.reduce((acc, elem) => {
 			return acc + Number(elem.points);
@@ -75,6 +75,7 @@ router.post("/getdrivers", isLoggedIn, async (req, res) => {
 		driver1Id: req.body.driver1Id,
 		driver2Id: req.body.driver2Id,
 		driver3Id: req.body.driver3Id,
+
 		//totalScore: req.body.totalScore
 	};
 	await Team.create(newTeam);
