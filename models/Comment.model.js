@@ -14,6 +14,9 @@ const commentSchema = new Schema(
 		isCurrentUser: {
 			type: Boolean,
 		},
+		time: {
+			type: String,
+		},
 	},
 	{
 		// this second object adds extra properties: `createdAt` and `updatedAt`

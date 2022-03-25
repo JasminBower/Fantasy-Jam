@@ -99,7 +99,7 @@
         {{!-- <th scope="row"></th> --}}
         <td>{{this.username}}</td>
         <td>{{this.comment}}</td>
-        <td>{{this.updatedAt}}</td>
+        <td>{{this.time}}</td>
         <td> {{#if this.isCurrentUser}}<form method="GET" action="/comments/{{this._id}}">
     <button type="submit" class="btn btn-primary" value="{{this._id}}">Edit Comment</button>
     </form>  {{/if}}</td>
