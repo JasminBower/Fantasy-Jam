@@ -38,12 +38,10 @@
   {{/each}}
 </ol> --}}
 <br>
-<div>
-<a href="../profile">Go back to profile</a>
-</div>
+
 <br>
 <div>
-<p>Racer Comments:</p>
+<h2>Racer Comments:</h2>
 
 <form method="POST" action="/scoreboard">
   <div class="input-field">
@@ -55,21 +53,21 @@
     ></textarea>
   </div>
   <input type="hidden" name="article-id" value="{{comment._id}}" />
-  <button type="submit">Add Comment</button>
+  <button class="btn btn-primary" type="submit">Add Comment</button>
 </form>
-<ul>
+ {{!-- <ul>
   {{#each allComments}}
     <li>{{this.comment}}</li>
     <p>by {{this.username}}</p>
     <p>at {{this.createdAt}}</p>
     <form method="GET" action="/comments/{{this._id}}">
-    <button type="submit" value="{{this._id}}">Edit Comment</button>
+    <button type="submit" class="btn btn-primary" value="{{this._id}}">Edit Comment</button>
     </form>
 
-    <button type="submit">Delete Comment</button>
+    <button type="submit" class="btn btn-primary">Delete Comment</button>
   {{/each}}
-</ul>
-</div>
+</ul> --}}
+</div> 
 
 <div>
 <table class="table table-dark table-striped">
@@ -79,6 +77,8 @@
       <th scope="col">User</th>
       <th scope="col">Comment</th>
       <th scope="col">Date</th>
+       <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -88,12 +88,18 @@
         <td>{{this.username}}</td>
         <td>{{this.comment}}</td>
         <td>{{this.createdAt}}</td>
+        <td><form method="GET" action="/comments/{{this._id}}">
+    <button type="submit" class="btn btn-primary" value="{{this._id}}">Edit Comment</button>
+    </form></td>
+        <td><form method="GET" action="/comments/{{this._id}}"><button type="submit" class="btn btn-primary">Delete Comment</button></form></td>
       </tr>
     {{/each}}
   </tbody>
 </table>
 </div>
-
+<div>
+<a href="../profile"><button class="btn btn-primary" type="submit" action="../profile">Go back to profile</button></a>
+</div>
 
 
 
