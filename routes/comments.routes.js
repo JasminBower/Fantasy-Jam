@@ -13,15 +13,10 @@ router.get("/comments/:id", async (req, res, next) => {
 });
 
 router.post("/comments/:id", async (req, res, next) => {
-	console.log("Hiiiiiiii");
 	let { comment } = req.body;
-	let { article_id } = req.params;
 	let { id } = req.params;
 
-	console.log(req.params, "<<< Paramassszzzzzz");
-	console.log(comment, "IIIIIIIIIII");
-
-	await Comment.findOneAndUpdate({ id }, { comment }, { new: true });
+	await Comment.findByIdAndUpdate(id, { comment }, { new: true });
 
 	res.redirect("/scoreboard");
 });
