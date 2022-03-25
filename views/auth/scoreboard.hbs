@@ -61,7 +61,7 @@
   {{#each allComments}}
     <li>{{this.comment}}</li>
     <p>by {{this.username}}</p>
-    <p>at {{this.createdAt}}</p>
+    <p>at {{this.updatedAt}}</p>
     <form method="GET" action="/comments/{{this._id}}">
     <button type="submit" value="{{this._id}}">Edit Comment</button>
     </form>

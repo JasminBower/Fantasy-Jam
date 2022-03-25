@@ -5,9 +5,6 @@ const Comment = require("../models/Comment.model");
 const findWinner = require("../utils/findWinner");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-//get user teams
-// sort and render
-// *** highlight current user position
 
 router.get("/scoreboard",isLoggedIn, async (req, res, next) => {
 	let allComments = await Comment.find();
@@ -16,9 +13,11 @@ router.get("/scoreboard",isLoggedIn, async (req, res, next) => {
 		return b.teamScore - a.teamScore;
 	});
 
-	const winner = sortedTeams[0].username;
+	let winner = sortedTeams[0].username;
 
-	//console.log(allComments[0]._id);
+	if (winner == req.session.user.username) {
+		winner = "You";
+	}
 
 	res.render("auth/scoreboard", { sortedTeams, winner, allComments });
 });
