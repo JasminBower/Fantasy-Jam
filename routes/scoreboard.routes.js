@@ -52,14 +52,9 @@ router.post("/scoreboard", isLoggedIn, async (req, res, next) => {
 	res.redirect("/scoreboard");
 });
 
-router.delete("/scoreboard/:id", async (req, res, next) => {
-	console.log("am I here???>");
+router.get("/scoreboard/:id", async (req, res, next) => {
 	let username = req.session.user.username;
 	let { id } = req.params;
-
-	console.log(req.params, req.body);
-
-	console.log(username, id);
 
 	if (username) {
 		await Comment.findByIdAndDelete(id);
